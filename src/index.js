@@ -221,7 +221,7 @@ export default {
     const path = url.pathname.replace(/\/+$/, "") || "/";
     const db = env.DB;
     if (req.method === "OPTIONS") return new Response(null, { headers: cors() });
-    if (path === "/" || path === "/v1/health") return J({ ok: true, service: "ppm-d1-api", time: nowISO() });
+    if (path === "/" || path === "/v1/health") return J({ ok: true, service: "ppm-d1-api", v: 2, time: nowISO() });
 
     try {
       /* ===== public (edge-cached 60s) ===== */
