@@ -1,0 +1,17 @@
+name = "ppm-worker-cloud"
+main = "src/index.js"
+compatibility_date = "2025-01-01"
+
+[[d1_databases]]
+binding = "DB"
+database_name = "ppmod"
+database_id = "b01216ad-9ae2-4f1e-9017-fd35bfed3b7b"
+
+[triggers]
+crons = ["*/5 * * * *"]
+
+[vars]
+ADMIN_EMAILS = "admin@gmail.com"
+FIREBASE_API_KEY = "AIzaSyAQmiWD9fP0nFpl7ShPjE51udtyFWo6jpA"
+GATEWAY_SECRET = "PPMOD_GATEWAY_SEC_2025"
+# ADMIN_IMPORT_KEY ar BOT_TOKEN Dashboard > Worker > Settings > Variables/Secrets e set korun
