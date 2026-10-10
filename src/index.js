@@ -534,7 +534,8 @@ export default {
 
       /* ===== admin ===== */
       if (path.startsWith("/v1/admin")) {
-        if (!isAdmin(env, me)) return E("Admin only", 403);
+        const keyOk = path === "/v1/admin/import" && (req.headers.get("X-Import-Key") || "") !== "" && (req.headers.get("X-Import-Key") || "") === (env.ADMIN_IMPORT_KEY || "");
+        if (!keyOk && !isAdmin(env, me)) return E("Admin only", 403);
         const seg = path.slice("/v1/admin".length) || "/";
         const q = async (sql, ...a) => (await db.prepare(sql).bind(...a).all()).results || [];
 
